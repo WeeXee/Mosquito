@@ -23,12 +23,19 @@ header h1 {
     font-size: 36px;
 }
 
+main{
+    display: flex;
+    width: 75%;
+    height: 15vh;
+}
+
 /* Style the map container */
 #map {
     height: 400px; /* Set an appropriate height for your map */
     background-color: #444;
     margin: 20px;
     border-radius: 10px;
+    /*position: absolute;*/
 }
 
 /* Style the footer */
