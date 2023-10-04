@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <link rel="stylesheet" href="styles.css">
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mosquito</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Carte Interactive</title>
+
+    <!-- Inclure le CSS de Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <!-- Inclure le JavaScript de Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
 </head>
-<body>
-    <header>
-        <h1>Mosquito</h1>
-    </header>
-    <main>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
-
-        <div id="map"></div>
-    </main>
-
-    <footer>
-        <p>&copy; 2023 Mosquito Inc.</p>
-    </footer>
-
-
-    <!-- JavaScript for adding a map (you will need to include a map library, like Leaflet, here) -->
+<main>
+    <div class="Selection">
+        <input type="text" id="villeInput" placeholder="Recherchez une ville">
+        <div id="suggestions"></div>
+        <button id="showMapButton">Show</button>
+    </div>
+    <div id="map"></div>
     <script src="../js/map.js"></script>
-
-
-
-</body>
+</main>
 </html>
