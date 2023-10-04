@@ -72,7 +72,7 @@ main{
 
         .Inputs{
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 5rem;
             color: #FA2302;
             text-align: center;
@@ -94,20 +94,13 @@ main{
                 padding: 0 5% 0 5%;
             }
 
-            .Username_email{
+            .Username_email_password{
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 gap: 14rem;
 
 
-            }
-
-            .PasswordConfirm{
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                gap: 14rem;
             }
 
             .boxInputText{
@@ -122,12 +115,12 @@ main{
 
         }
 
-        .RegisterBtn{
+        .LoginBtn{
             font-size: 35px;
             transition: transform 0.5s ease;
         }
 
-        .RegisterBtn:hover{
+        .LoginBtn:hover{
             cursor: pointer;
             color: #FA2302;
             background-color: white;
@@ -138,7 +131,7 @@ main{
 
     }
 
-    .Register{
+    .Login{
         width: 100%;
         height: 100%;
         display: flex;
