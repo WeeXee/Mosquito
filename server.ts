@@ -1,6 +1,8 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import { PrismaClient } from '@prisma/client'
+import {hashPassword} from "./utils/hashPassword";
+import bcrypt, {compare, compareSync} from "bcrypt";
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -30,7 +32,7 @@ app.post('/register', async (req, res) => {
             data: {
                 UserName: username,
                 Mail: email,
-                Password: password,
+                Password: await hashPassword(password),
             },
         });
         console.log('Utilisateur créé avec succès !');
@@ -48,13 +50,13 @@ app.get('/login', (req: any, res: { sendFile: (arg0: string) => void }) => {
 
 app.post('/login', async(req, res) => {
     const {username, password} = req.body;
+    let passwordHash = await hashPassword(password);
     const client = await prisma.clientInfos.findFirst({
         where: {
             UserName: username,
-            Password: password,
         }
     });
-    if (client?.UserName === username || client?.Password === password) {
+    if (client?.UserName === username) {
         res.redirect('/')
     } else {
         res.redirect('/login')
