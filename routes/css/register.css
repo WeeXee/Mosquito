@@ -84,7 +84,7 @@ main{
                 border: #FA2302 solid 3px;
                 border-radius: 20px ;
                 width: 130%;
-                height: 60%;
+                height: 75%;
                 background-color: transparent;
                 display: flex;
                 outline: none;
@@ -140,14 +140,14 @@ main{
 
     .Register{
         width: 100%;
-        height: 100%;
+        height: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
 
-    .main__center button{
+    .main__center input[type="submit"]{
         background-color: #FA2302;
         color: white;
         font-family: GalanoGrotesqueExtraBold, sans-serif;

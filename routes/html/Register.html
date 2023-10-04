@@ -26,32 +26,34 @@
 
     </div>
     <div class="main__center">
-        <div class="Inputs">
-            <div class="Username_email">
-                <div class="boxInputText">
-                    <p class="Text">Username</p>
-                    <input type="text" class="input">
+        <form method="POST">
+            <div class="Inputs">
+                <div class="Username_email">
+                    <div class="boxInputText">
+                        <p class="Text">Username</p>
+                        <input type="text" name="username" class="input" required>
+                    </div>
+                    <div class="boxInputText">
+                        <p class="Text">Email</p>
+                        <input type="email" name="email" class="input" required>
+                    </div>
                 </div>
-                <div class="boxInputText">
-                    <p class="Text">Email</p>
-                    <input type="email" class="input">
-                </div>
-            </div>
-            <div class="PasswordConfirm">
-                <div class="boxInputText">
-                    <p class="Text">Password</p>
-                    <input type="password" class="input">
-                </div>
+                <div class="PasswordConfirm">
+                    <div class="boxInputText">
+                        <p class="Text">Password</p>
+                        <input type="password" name="password" class="input" required>
+                    </div>
 
-                <div class="boxInputText">
-                    <p class="Text">Confirm Password</p>
-                    <input type="password" class="input">
+                    <div class="boxInputText">
+                        <p class="Text">Confirm Password</p>
+                        <input type="password" name="confirmPassword" class="input" required>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="Register">
-            <button class="RegisterBtn">Register</button>
-        </div>
+            <div class="Register">
+                <input type="submit" name="submit" class="RegisterBtn" value="Register">
+            </div>
+        </form>
     </div>
     <div class="main__mousquitoTwo">
         <svg width="275" height="381" viewBox="0 0 275 381" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -67,7 +69,7 @@
     </div>
 </main>
 <footer>
-    <h1>You have an account?&nbsp<span class="Register-color">Login!</span></h1>
+    <h1>You have an account?&nbsp<a class="Register-color" href="/login">Login!</a></h1>
 </footer>
 </body>
 </html>
