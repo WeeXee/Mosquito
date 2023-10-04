@@ -1,0 +1,123 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "GalanoGrotesqueBold";
+    src: url("/src/fonts/GalanoGrotesqueBold.otf");
+}
+
+@font-face {
+    font-family: "GalanoGrotesqueExtraBold";
+    src: url("/src/fonts/GalanoGrotesqueExtraBold.otf");
+}
+
+/* Set dark background and text colors */
+body {
+    background-color: #fff;
+    color: #000000;
+    font-family: GalanoGrotesqueExtraBold, sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+
+.Title-color{
+    color: #FA2302;
+}
+
+header{
+    height: 35%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    font-size: 32px;
+
+    .header__logo{
+        width: 100%;
+        height: 80%;
+        gap: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+}
+
+header img{
+    height: 10vh;
+}
+
+main{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    .main__mousquitoOne{
+        display: flex;
+        height: 100%;
+        width: 20%;
+    }
+    .main__center{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 90%;
+        gap: 10rem;
+        justify-content: flex-start;
+        align-items: center;
+
+        .LoginBtn{
+            font-size: 35px;
+            transition: transform 0.5s ease;
+        }
+
+        .LoginBtn:hover{
+            cursor: pointer;
+            color: #FA2302;
+            background-color: white;
+            border:3px solid #FA2302 ;
+            transition: transform 0.5s ease;
+            transform: scale(1.05);
+        }
+
+    }
+
+    .main__center h1{
+        font-size: 24px;
+    }
+
+    .main__center button{
+        background-color: #FA2302;
+        color: white;
+        font-family: GalanoGrotesqueExtraBold, sans-serif;
+        font-size: 22px;
+        border: transparent;
+        width: 30%;
+        height : 20%;
+        border-radius: 20px;
+    }
+
+    .main__mousquitoTwo{
+        display: flex;
+        height: 100%;
+        width: 20%;
+    }
+}
+
+footer{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .Register-color{
+        color: #FA2302;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
