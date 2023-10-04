@@ -70,18 +70,24 @@ main{
         justify-content: flex-start;
         align-items: center;
 
-        .LoginBtn{
-            font-size: 35px;
-            transition: transform 0.5s ease;
-        }
+        .form_post {
+            width: 140%;
+            height: 40%;
+            padding-left: 50%;
 
-        .LoginBtn:hover{
-            cursor: pointer;
-            color: #FA2302;
-            background-color: white;
-            border:3px solid #FA2302 ;
-            transition: transform 0.5s ease;
-            transform: scale(1.05);
+            .LoginBtn{
+                font-size: 30px;
+                transition: transform 0.5s ease;
+            }
+
+            .LoginBtn:hover{
+                cursor: pointer;
+                color: #FA2302;
+                background-color: white;
+                border:3px solid #FA2302 ;
+                transition: transform 0.5s ease;
+                transform: scale(1.05);
+            }
         }
 
     }
@@ -90,14 +96,14 @@ main{
         font-size: 24px;
     }
 
-    .main__center button{
+    .main__center input[type="submit"]{
         background-color: #FA2302;
         color: white;
         font-family: GalanoGrotesqueExtraBold, sans-serif;
         font-size: 22px;
         border: transparent;
         width: 30%;
-        height : 20%;
+        height : 40%;
         border-radius: 20px;
     }
 
@@ -120,4 +126,3 @@ footer{
         cursor: pointer;
     }
 }
-

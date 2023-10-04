@@ -21,12 +21,7 @@ app.get('/register', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-    let username = req.body.username;
-    let email = req.body.email;
-    let password = req.body.password;
-    let confirm = req.body.confirmPassword;
-    console.log("Username: " + username + " Password: " + password + " Email: " + email + " Confirm: " + confirm)
-    res.send("Welcome " + username + " !")
+    res.redirect('/')
 });
 
 app.get('/login', (req, res) => {
@@ -34,11 +29,12 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-    let username = req.body.username;
-    let password = req.body.password;
-    console.log("Username: " + username + " Password: " + password)
-    res.send("Welcome " + username + " !")
+    res.redirect('/')
 });
 app.get('/vitrine', (req, res) => {
     res.sendFile(__dirname + "/routes/html/Vitrine.html")
 });
+
+app.post('/vitrine', (req, res) => {
+    res.redirect('/login')
+})

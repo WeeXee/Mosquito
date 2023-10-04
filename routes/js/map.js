@@ -20,5 +20,9 @@ let Overlaysmaps = {
 
 L.control.layers(Basemaps, Overlaysmaps).addTo(map)
 
+let pos = L.control.extend({
+
+})
+
 // Customize the map's appearance
 map.getContainer().style.background = '#444'; // Set the map's background color
