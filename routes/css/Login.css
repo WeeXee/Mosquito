@@ -72,12 +72,13 @@ main{
 
         .Inputs{
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            align-items: center;
             gap: 5rem;
             color: #FA2302;
             text-align: center;
             font-size: 24px;
-            height: 100%;
+            height: 150%;
             width: 100%;
 
             .input{
@@ -94,22 +95,13 @@ main{
                 padding: 0 5% 0 5%;
             }
 
-            .Username_email_password{
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                gap: 14rem;
-
-
-            }
-
             .boxInputText{
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
                 width: 30%;
-                height: 150%;
+                height: 50%;
             }
 
 
