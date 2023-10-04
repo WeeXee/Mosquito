@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-ts"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ClientInfos {
+  ID               Int                @id @default(autoincrement())
+  UserName         String
+  Mail             String
+  Password         String
+  mosquitos_report Mosquitos_report[]
+}
+
+model Mosquitos_report {
+  id          Int          @id @default(autoincrement())
+  ID          Int
+  DateOfByte  DateTime
+  Location    String
+  Symptom     String
+  Photo       Bytes
+  ClientInfos ClientInfos? @relation(fields: [ID], references: [ID])
+}
