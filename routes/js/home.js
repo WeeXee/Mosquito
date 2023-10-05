@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fileInput.style.display = 'none'; // Cachez l'input
 
     stungBtn.addEventListener('click', function() {
-        console.log("zob dans le cul")
+        /*console.log("zob dans le cul")*/
         main.innerHTML =
             "<h1 class='TitleQuestion'>Take a <span class='TitleColor'>pic</span> of the sting </h1>" +
             "<div class='main__container'>" +
@@ -37,7 +37,32 @@ document.addEventListener('DOMContentLoaded', function() {
             "</defs>\n" +
             "</svg>\n</div>" +
             "<div class='container__centerTwo'>" +
-            "<h1>Zob</h1>"+
+                "<div id='Date' class='Date'>" +
+                    "<div>"+
+                        "<select id='year'></select>"+
+                    "</div>"+
+                    "<div>"+
+                        "<select id='month'></select>"+
+                    "</div>"+
+                    "<div>"+
+                        "<select id='day'></select>"+
+                    "</div>"+
+                "</div>"+
+                "<div id='Time' class='Time'>" +
+                    "<div>"+
+                        "<select id='hour'></select>"+
+                    "</div>"+
+                    "<div>"+
+                        "<select id='minute'></select>"+
+                    "</div>"+
+                "</div>"+
+            "</div>" +
+            "<div class='container__centerThree'>" +
+            "<h1>Zob3</h1>"+
+
+            "</div>" +
+            "<div class='container__centerFour'>" +
+            "<h1>Zob4</h1>"+
 
             "</div>" +
             "<div style='margin-right: 2%' class='container__chevronR'><svg class='svg' width=\"20\" height=\"40\" viewBox=\"0 0 41 79\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
@@ -49,51 +74,62 @@ document.addEventListener('DOMContentLoaded', function() {
         main.style.gap = "3rem"
         footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>1</span> / 4</h1>"
         footer.style.alignItems = "center";
+        let TitleQuestion = document.querySelector('.TitleQuestion');
 
         function nextStep() {
             let centerOne = document.querySelector('.container__centerOne');
             let centerTwo = document.querySelector('.container__centerTwo');
-            /*let centerThree = document.querySelector('.container__centerThree');
+            let centerThree = document.querySelector('.container__centerThree');
             let centerFour = document.querySelector('.container__centerFour');
-            let centerFive = document.querySelector('.container__centerFive');*/
+            let centerFive = document.querySelector('.container__centerFive');
 
             if (centerOne.style.display != "none") {
 
-                /*centerThree.style.display = "none";
-                centerFour.style.display = "none";
-                centerFive.style.display = "none";*/
-
                 //add animation NexStep and PreviousStep
 
+                TitleQuestion.innerHTML = "Enter the <span class='TitleColor'>date</span> and the <span class='TitleColor'>time</span> of your sting "
                 centerOne.style.animation = "PrevStep 0.7s";
                 centerOne.style.animationFillMode = "forwards";
+                footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>2</span> / 4</h1>"
                 setTimeout(function() {
+                    initDateDropdowns();
                     centerTwo.style.display = "flex";
+                    centerOne.style.display = "none";
+                    centerTwo.style.marginLeft = "0";
                     centerTwo.style.animation = "PrevStep2 0.7s";
                     centerTwo.style.animationFillMode = "forwards";
-                }, 700);
+                }, 350);
 
 
-                /*centerOne.style.display = "none";*/
-            } /*else if (centerTwo.style.display === "flex") {
-                centerOne.style.display = "none";
-                centerTwo.style.display = "none";
-                centerThree.style.display = "flex";
-                centerFour.style.display = "none";
-                centerFive.style.display = "none";
+            } else if (centerTwo.style.display === "flex") {
+                centerTwo.style.animation = "PrevStep 0.7s";
+                centerTwo.style.animationFillMode = "forwards";
+                footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>3</span> / 4</h1>"
+                setTimeout(function() {
+                    centerThree.style.display = "flex";
+                    centerTwo.style.display = "none";
+                    centerThree.style.marginLeft = "0";
+                    centerThree.style.animation = "PrevStep2 0.7s";
+                    centerThree.style.animationFillMode = "forwards";
+                }, 350);
             } else if (centerThree.style.display === "flex") {
-                centerOne.style.display = "none";
-                centerTwo.style.display = "none";
-                centerThree.style.display = "none";
-                centerFour.style.display = "flex";
-                centerFive.style.display = "none";
-            } else if (centerFour.style.display === "flex") {
+                centerThree.style.animation = "PrevStep 0.7s";
+                centerThree.style.animationFillMode = "forwards";
+                footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>4</span> / 4</h1>"
+                setTimeout(function() {
+                    centerFour.style.display = "flex";
+                    centerThree.style.display = "none";
+                    centerFour.style.marginLeft = "0";
+                    centerFour.style.animation = "PrevStep2 0.7s";
+                    centerFour.style.animationFillMode = "forwards";
+                }, 350);
+            } /*else if (centerFour.style.display === "flex") {
                 centerOne.style.display = "none";
                 centerTwo.style.display = "none";
                 centerThree.style.display = "none";
                 centerFour.style.display = "none";
                 centerFive.style.display = "flex";
-            } else if (centerFive.style.display === "flex") {
+            } /*else if (centerFive.style.display === "flex") {
                 centerOne.style.display = "flex";
                 centerTwo.style.display = "none";
                 centerThree.style.display = "none";
@@ -105,39 +141,68 @@ document.addEventListener('DOMContentLoaded', function() {
         function previousStep() {
             let centerOne = document.querySelector('.container__centerOne');
             let centerTwo = document.querySelector('.container__centerTwo');
-            /*let centerThree = document.querySelector('.container__centerThree');
+            let centerThree = document.querySelector('.container__centerThree');
             let centerFour = document.querySelector('.container__centerFour');
-            let centerFive = document.querySelector('.container__centerFive');*/
+            let centerFive = document.querySelector('.container__centerFive');
+/*
+            if (centerOne.style.display != "none") {
 
-            if (centerOne.style.display === "flex") {
-                centerOne.style.display = "none";
-                centerTwo.style.display = "flex";
-                /*centerThree.style.display = "none";
-                centerFour.style.display = "none";
-                centerFive.style.display = "flex";*/
-            } /*else if (centerTwo.style.display === "flex") {
+                //add animation NexStep and PreviousStep
+
+                centerOne.style.animation = "NextStep 0.7s";
+                centerOne.style.animationFillMode = "forwards";
+                footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>2</span> / 4</h1>"
+                setTimeout(function() {
+                    centerTwo.style.display = "flex";
+                    centerOne.style.display = "none";
+                    centerTwo.style.marginLeft = "0";
+                    centerTwo.style.animation = "NextStep2 0.7s";
+                    centerTwo.style.animationFillMode = "forwards";
+                }, 300);
+
+
+            } else*/ if (centerTwo.style.display === "flex") {
+                TitleQuestion.innerHTML = "Take a <span class='TitleColor'>pic</span> of the sting "
+                centerTwo.style.animation = "NextStep 0.7s";
+                centerTwo.style.animationFillMode = "forwards";
+                footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>1</span> / 4</h1>"
+                setTimeout(function() {
+                    centerTwo.style.display = "none";
+                    centerTwo.style.marginRight = "0";
+                    centerTwo.style.marginLeft = "0";
+                    centerOne.style.display = "flex";
+                    /*centerOne.style.marginLeft = "-40%";*/
+                    centerOne.style.animation = "NextStep2 0.7s";
+                    centerOne.style.animationFillMode = "forwards";
+                }, 350);
+            } else if (centerThree.style.display === "flex") {
+                TitleQuestion.innerHTML = "Enter the <span class='TitleColor'>date</span> and the <span class='TitleColor'>time</span> of your sting "
+                centerThree.style.animation = "NextStep 0.7s";
+                centerThree.style.animationFillMode = "forwards";
+                footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>2</span> / 4</h1>"
+                setTimeout(function() {
+                    centerThree.style.display = "none";
+                    centerTwo.style.display = "flex";
+                    /*centerTwo.style.marginLeft = "-80%";*/
+                    centerTwo.style.animation = "NextStep2 0.7s";
+                    centerTwo.style.animationFillMode = "forwards";
+                }, 350);
+            } else if (centerFour.style.display === "flex") {
+                centerFour.style.animation = "NextStep 0.7s";
+                centerFour.style.animationFillMode = "forwards";
+                footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>3</span> / 4</h1>"
+                setTimeout(function() {
+                    centerFour.style.display = "none";
+                    centerThree.style.display = "flex";
+                    /*centerThree.style.marginLeft = "-80%";*/
+                    centerThree.style.animation = "NextStep2 0.7s";
+                    centerThree.style.animationFillMode = "forwards";
+                }, 350);
+            } /*else if (centerFive.style.display === "flex") {
                 centerOne.style.display = "flex";
                 centerTwo.style.display = "none";
                 centerThree.style.display = "none";
                 centerFour.style.display = "none";
-                centerFive.style.display = "none";
-            } else if (centerThree.style.display === "flex") {
-                centerOne.style.display = "none";
-                centerTwo.style.display = "flex";
-                centerThree.style.display = "none";
-                centerFour.style.display = "none";
-                centerFive.style.display = "none";
-            } else if (centerFour.style.display === "flex") {
-                centerOne.style.display = "none";
-                centerTwo.style.display = "none";
-                centerThree.style.display = "flex";
-                centerFour.style.display = "none";
-                centerFive.style.display = "none";
-            } else if (centerFive.style.display === "flex") {
-                centerOne.style.display = "none";
-                centerTwo.style.display = "none";
-                centerThree.style.display = "none";
-                centerFour.style.display = "flex";
                 centerFive.style.display = "none";
             }*/
         }
@@ -173,3 +238,53 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
 });
+
+// Fonction pour initialiser les menus déroulants de date
+function initDateDropdowns() {
+    const yearDropdown = document.getElementById("year");
+    const monthDropdown = document.getElementById("month");
+    const dayDropdown = document.getElementById("day");
+
+    // Remplir le menu déroulant pour l'année (choisir une plage d'années appropriée)
+    const currentYear = new Date().getFullYear();
+    for (let year = currentYear; year >= currentYear - 5; year--) {
+        const option = document.createElement("option");
+        option.text = year;
+        yearDropdown.add(option);
+    }
+
+    // Remplir le menu déroulant pour le mois
+    for (let month = 1; month <= 12; month++) {
+        const option = document.createElement("option");
+        option.text = month;
+        monthDropdown.add(option);
+    }
+
+    // Mettre à jour les jours en fonction de l'année et du mois sélectionnés
+    function updateDays() {
+        const selectedYear = parseInt(yearDropdown.value);
+        const selectedMonth = parseInt(monthDropdown.value);
+        const daysInMonth = new Date(selectedYear, selectedMonth, 0).getDate();
+
+        // Effacer les options précédentes
+        while (dayDropdown.firstChild) {
+            dayDropdown.removeChild(dayDropdown.firstChild);
+        }
+
+        // Remplir le menu déroulant pour le jour
+        for (let day = 1; day <= daysInMonth; day++) {
+            const option = document.createElement("option");
+            option.text = day;
+            dayDropdown.add(option);
+        }
+    }
+
+    // Écouter les changements dans les menus déroulants de l'année et du mois
+    yearDropdown.addEventListener("change", updateDays);
+    monthDropdown.addEventListener("change", updateDays);
+
+    // Appeler la fonction d'initialisation des menus déroulants
+    updateDays();
+}
+
+
