@@ -1,5 +1,8 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
-  provider = "prisma-client-ts"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -16,11 +19,11 @@ model ClientInfos {
 }
 
 model Mosquitos_report {
-  id          Int          @id @default(autoincrement())
-  ID          Int
+  Id          Int          @id @default(autoincrement())
   DateOfByte  DateTime
   Location    String
   Symptom     String
   Photo       Bytes
-  ClientInfos ClientInfos? @relation(fields: [ID], references: [ID])
+  ClientInfos ClientInfos? @relation(fields: [MosquitosId], references: [ID])
+  MosquitosId Int?
 }

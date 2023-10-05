@@ -1,3 +1,4 @@
+import * as L from 'leaflet'; // Import the Leaflet library
 // Initialize the map
 const map = L.map('map').setView([43.610376, 1.431881], 8); // Set the initial coordinates and zoom level
 
