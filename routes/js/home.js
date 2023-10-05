@@ -38,22 +38,31 @@ document.addEventListener('DOMContentLoaded', function() {
             "</svg>\n</div>" +
             "<div class='container__centerTwo'>" +
                 "<div id='Date' class='Date'>" +
-                    "<div>"+
-                        "<select id='year'></select>"+
-                    "</div>"+
-                    "<div>"+
-                        "<select id='month'></select>"+
-                    "</div>"+
-                    "<div>"+
-                        "<select id='day'></select>"+
-                    "</div>"+
+            "<div>"+
+            "<select id='year'>" +
+            "</select>"+
+
+            "</div>"+
+            "<div>"+
+            "<select id='month'>" +
+            "</select>"+
+            "</div>"+
+
+            "<div>"+
+            "<select id='day'>" +
+            "</select>"+
+            "</div>"+
                 "</div>"+
                 "<div id='Time' class='Time'>" +
                     "<div>"+
-                        "<select id='hour'></select>"+
+                        "<select id='hour'>" +
+            "<option value=''>Hour</option>" +
+            "</select>"+
                     "</div>"+
                     "<div>"+
-                        "<select id='minute'></select>"+
+                        "<select id='minute'>" +
+            "<option value=''>Min</option>" +
+            "</select>"+
                     "</div>"+
                 "</div>"+
             "</div>" +
@@ -248,6 +257,11 @@ function initDateDropdowns() {
     // Remplir le menu déroulant pour l'année (choisir une plage d'années appropriée)
     const currentYear = new Date().getFullYear();
     for (let year = currentYear; year >= currentYear - 5; year--) {
+        if(year===currentYear){
+            const option = document.createElement("option");
+            option.text = "Year";
+            yearDropdown.add(option);
+        }
         const option = document.createElement("option");
         option.text = year;
         yearDropdown.add(option);
@@ -255,6 +269,11 @@ function initDateDropdowns() {
 
     // Remplir le menu déroulant pour le mois
     for (let month = 1; month <= 12; month++) {
+        if(month===1){
+            const option = document.createElement("option");
+            option.text = "Month";
+            monthDropdown.add(option);
+        }
         const option = document.createElement("option");
         option.text = month;
         monthDropdown.add(option);
@@ -262,6 +281,17 @@ function initDateDropdowns() {
 
     // Mettre à jour les jours en fonction de l'année et du mois sélectionnés
     function updateDays() {
+        if(yearDropdown.value=== "Year" || monthDropdown.value==="Month"){
+            const option = document.createElement("option");
+            option.text = "Day";
+            dayDropdown.add(option);
+            for (let day = 1; day <= 31; day++) {
+                const option = document.createElement("option");
+                option.text = day;
+                dayDropdown.add(option);
+            }
+            return;
+        }
         const selectedYear = parseInt(yearDropdown.value);
         const selectedMonth = parseInt(monthDropdown.value);
         const daysInMonth = new Date(selectedYear, selectedMonth, 0).getDate();
@@ -270,6 +300,9 @@ function initDateDropdowns() {
         while (dayDropdown.firstChild) {
             dayDropdown.removeChild(dayDropdown.firstChild);
         }
+        const option = document.createElement("option");
+        option.text = "Day";
+        dayDropdown.add(option);
 
         // Remplir le menu déroulant pour le jour
         for (let day = 1; day <= daysInMonth; day++) {
