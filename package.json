@@ -14,7 +14,9 @@
     "nodemon": "^3.0.1"
   },
   "scripts": {
-    "start": "nodemon --exec ts-node server.ts"
+    "start": "nodemon --exec ts-node server.ts",
+    "build": "tsc -p .",
+    "start:prod": "npx prisma db push && node dist/server.js"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
