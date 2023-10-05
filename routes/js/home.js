@@ -111,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
             } else if (centerTwo.style.display === "flex") {
+                TitleQuestion.innerHTML = "What <span class='TitleColor'>symptoms</span> do you have ? "
                 centerTwo.style.animation = "PrevStep 0.7s";
                 centerTwo.style.animationFillMode = "forwards";
                 footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>3</span> / 4</h1>"
@@ -253,6 +254,8 @@ function initDateDropdowns() {
     const yearDropdown = document.getElementById("year");
     const monthDropdown = document.getElementById("month");
     const dayDropdown = document.getElementById("day");
+    const hourDropdown = document.getElementById("hour");
+    const minuteDropdown = document.getElementById("minute");
 
     // Remplir le menu déroulant pour l'année (choisir une plage d'années appropriée)
     const currentYear = new Date().getFullYear();
@@ -277,6 +280,20 @@ function initDateDropdowns() {
         const option = document.createElement("option");
         option.text = month;
         monthDropdown.add(option);
+    }
+
+    // Remplir le menu déroulant pour l'heure
+    for (let hour = 1; hour <= 23; hour++) {
+        const option = document.createElement("option");
+        option.text = hour;
+        hourDropdown.add(option);
+    }
+
+    // Remplir le menu déroulant pour les minutes
+    for (let minute = 1; minute <= 59; minute++) {
+        const option = document.createElement("option");
+        option.text = minute;
+        minuteDropdown.add(option);
     }
 
     // Mettre à jour les jours en fonction de l'année et du mois sélectionnés

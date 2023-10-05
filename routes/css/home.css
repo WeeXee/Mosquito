@@ -54,7 +54,7 @@ ul {
 
 .TitleQuestion {
     font-family: GalanoGrotesqueBold, sans-serif;
-    font-size: 17px;
+    font-size: 22px;
 }
 
 .TitleColor {
@@ -131,12 +131,55 @@ main {
             .Date, .Time {
                 display: flex;
                 flex-direction: row;
-                justify-content: space-between;
+                justify-content: space-evenly;
                 width: 30%;
                 height: 35%;
 
                 #year {
                     width: 100%;
+                    border-radius: 10px;
+                    border: 1.5px solid #FA2302;
+                    font-family: GalanoGrotesqueExtraBold , sans-serif;
+                    outline : none;
+                }
+
+                #month {
+                    width: 100%;
+                    border-radius: 10px;
+                    border: 1.5px solid #FA2302;
+                    font-family: GalanoGrotesqueExtraBold , sans-serif;
+                    outline : none;
+                }
+
+                #day {
+                    width: 100%;
+                    border-radius: 10px;
+                    border: 1.5px solid #FA2302;
+                    font-family: GalanoGrotesqueExtraBold , sans-serif;
+                    outline : none;
+                }
+
+                #hour {
+                    width: 100%;
+                    border-radius: 10px;
+                    border: 1.5px solid #FA2302;
+                    font-family: GalanoGrotesqueExtraBold , sans-serif;
+                    outline : none;
+                }
+
+                #minute {
+                    width: 100%;
+                    border-radius: 10px;
+                    border: 1.5px solid #FA2302;
+                    font-family: GalanoGrotesqueExtraBold , sans-serif;
+                    outline : none;
+                }
+
+                #year:hover, #month:hover, #day:hover, #hour:hover, #minute:hover {
+                    cursor: pointer;
+                    border: 2px solid #FA2302;
+                    transition: transform 0.5s ease;
+                    transform: scale(1.05);
                 }
             }
         }
