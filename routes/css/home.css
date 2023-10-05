@@ -17,6 +17,7 @@
 body {
     width: 100vw;
     height: 100vh;
+    font-family: GalanoGrotesqueExtraBold , sans-serif;
 }
 
 header {
@@ -298,4 +299,53 @@ select {
     padding-left: 1rem;
     font-size: 1rem;
     line-height: 1.5rem;
+}
+
+.Selection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#villeInput {
+    padding: 10px;
+    font-size: 16px;
+    width: 95%;
+    height: 30%;
+    border-radius: 10px;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 9px 0px #F00;
+}
+
+#villeInput::placeholder{
+    font-family: GalanoGrotesqueExtraBold , sans-serif;
+    text-align: center;
+    color: black;
+}
+
+/* Styles pour les suggestions de villes */
+#suggestions {
+    max-height: 150px;
+    overflow-y: auto;
+    width: 298px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    display: none;
+}
+
+#suggestions div {
+    padding: 5px;
+    cursor: pointer;
+}
+
+#suggestions div:hover {
+    background-color: #f0f0f0;
+}
+
+#location{
+    position: fixed;
+    margin-right: 10%;
 }

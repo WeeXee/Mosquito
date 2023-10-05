@@ -71,8 +71,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
             "</div>" +
             "<div class='container__centerFour'>" +
-            "<h1>Zob4</h1>"+
-
+            "<div class='Selection'>"+
+                "<input type='text' id='villeInput' placeholder='Location'>"+
+            "<svg class='locationSVG' id='location' width='40' height='40' viewBox='0 0 63 63' fill='none' xmlns='http://www.w3.org/2000/svg'>"+
+                "<path d='M39.375 27.5625C39.375 29.6511 38.5453 31.6541 37.0685 33.131C35.5916 34.6078 33.5886 35.4375 31.5 35.4375C29.4114 35.4375 27.4084 34.6078 25.9315 33.131C24.4547 31.6541 23.625 29.6511 23.625 27.5625C23.625 25.4739 24.4547 23.4709 25.9315 21.994C27.4084 20.5172 29.4114 19.6875 31.5 19.6875C33.5886 19.6875 35.5916 20.5172 37.0685 21.994C38.5453 23.4709 39.375 25.4739 39.375 27.5625Z' stroke='#FA2302' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/>"+
+                "<path d='M51.1875 27.5625C51.1875 46.3103 31.5 57.0938 31.5 57.0938C31.5 57.0938 11.8125 46.3103 11.8125 27.5625C11.8125 22.3411 13.8867 17.3335 17.5788 13.6413C21.271 9.94921 26.2786 7.875 31.5 7.875C36.7214 7.875 41.729 9.94921 45.4212 13.6413C49.1133 17.3335 51.1875 22.3411 51.1875 27.5625Z' stroke='#FA2302' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/>"+
+            "</svg>"+
+        " <div id='suggestions'></div>"+
+            "</div>"+
             "</div>" +
             "<div style='margin-right: 2%' class='container__chevronR'><svg class='svg' width=\"20\" height=\"40\" viewBox=\"0 0 41 79\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
             "<path d=\"M1.28125 77.9375L39.7188 39.5L1.28125 1.0625\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n" +
@@ -123,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     centerThree.style.animationFillMode = "forwards";
                 }, 350);
             } else if (centerThree.style.display === "flex") {
+                TitleQuestion.innerHTML = "In which <span class='TitleColor'>city</span> did you get stung ? "
                 centerThree.style.animation = "PrevStep 0.7s";
                 centerThree.style.animationFillMode = "forwards";
                 footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>4</span> / 4</h1>"
@@ -198,6 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     centerTwo.style.animationFillMode = "forwards";
                 }, 350);
             } else if (centerFour.style.display === "flex") {
+                TitleQuestion.innerHTML = "What <span class='TitleColor'>symptoms</span> do you have ? "
                 centerFour.style.animation = "NextStep 0.7s";
                 centerFour.style.animationFillMode = "forwards";
                 footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>3</span> / 4</h1>"
@@ -335,6 +343,60 @@ function initDateDropdowns() {
 
     // Appeler la fonction d'initialisation des menus déroulants
     updateDays();
+
+    function location(){
+        const apiKey = "manax"; // Remplacez par votre clé API Geonames
+        const input = document.getElementById("villeInput");
+        const suggestionsDiv = document.getElementById("suggestions");
+
+        let selectedCity = null;
+
+        async function searchCities(query) {
+            try {
+                const response = await fetch(`http://api.geonames.org/searchJSON?formatted=true&username=${apiKey}&featureClass=P&orderby=population&maxRows=10&name_startsWith=${query}`);
+                const data = await response.json();
+                const cities = data.geonames;
+
+                // Afficher les suggestions de villes
+                suggestionsDiv.innerHTML = "";
+                cities.forEach(city => {
+                    const suggestion = document.createElement("div");
+                    suggestion.textContent = `${city.name}, ${city.countryName}`;
+                    suggestion.addEventListener("click", () => {
+                        input.value = suggestion.textContent;
+                        suggestionsDiv.innerHTML = "";
+                        selectedCity = city;
+                    });
+                    suggestionsDiv.appendChild(suggestion);
+                });
+            } catch (error) {
+                console.error("Erreur lors de la recherche de villes :", error);
+            }
+        }
+
+        input.addEventListener("input", function () {
+            const locationSVG = document.querySelector('.locationSVG');
+            locationSVG.style.display = "none";
+            const query = input.value.trim();
+            if (query.length >= 3) {
+                searchCities(query);
+                suggestionsDiv.style.display = "block";
+            } else {
+                suggestionsDiv.innerHTML = "";
+                suggestionsDiv.style.display = "none";
+            }
+
+            input.addEventListener("blur", function () {
+                const locationSVG = document.querySelector('.locationSVG');
+                locationSVG.style.display = "none";
+                setTimeout(() => {
+                    suggestionsDiv.style.display = "none";
+                }, 200); // Ajouter un délai pour permettre la sélection de la suggestion
+            });
+        });
+
+    }
+    location();
 }
 
 
