@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/map.css">
+    <title>Carte Interactive</title>
+
+    <!-- Inclure le CSS de Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <!-- Inclure le JavaScript de Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+</head>
+<main>
+    <div class="Selection">
+        <input type="text" id="villeInput" placeholder="Recherchez une ville">
+        <div id="suggestions"></div>
+        <button id="showMapButton">Show</button>
+    </div>
+    <div id="map"></div>
+    <script src="../js/map.js"></script>
+</main>
+</html>

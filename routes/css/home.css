@@ -1,0 +1,351 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "GalanoGrotesqueBold";
+    src: url("/src/fonts/GalanoGrotesqueBold.otf");
+}
+
+@font-face {
+    font-family: "GalanoGrotesqueExtraBold";
+    src: url("/src/fonts/GalanoGrotesqueExtraBold.otf");
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: GalanoGrotesqueExtraBold , sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 20%;
+}
+
+nav {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5vw;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+nav img {
+    width: 15vh;
+    border-radius: 50%;
+}
+
+ul {
+    width: 90%;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.TitleQuestion {
+    font-family: GalanoGrotesqueBold, sans-serif;
+    font-size: 22px;
+}
+
+.TitleColor {
+    color: #FA2302;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+
+    .main__oldStings {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 85%;
+        height: 60%;
+        background-color: #EAEAEA;
+        border-radius: 20px;
+        box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25) inset;
+
+        .main__noBytes {
+            color: #646464;
+            text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+            font-family: GalanoGrotesqueBold, sans-serif;
+            font-size: 15px;
+        }
+    }
+
+    .main__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: 50%;
+
+        .container__chevronL, .container__chevronR {
+            width: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FA2302;
+
+            .svg {
+                stroke: black;
+            }
+        }
+
+        .container__chevronL:hover, .container__chevronR:hover {;
+            fill: #FA2302;
+            cursor: pointer;
+
+            .svg {
+                stroke: #FA2302;
+            }
+        }
+
+
+        .container__centerOne {
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container__centerTwo {
+            width: 90%;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            .Date, .Time {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                width: 30%;
+                height: 35%;
+
+                #year {
+                    width: 100%;
+                    border-radius: 10px;
+                    border: 1.5px solid #FA2302;
+                    font-family: GalanoGrotesqueExtraBold , sans-serif;
+                    outline : none;
+                }
+
+                #month {
+                    width: 100%;
+                    border-radius: 10px;
+                    border: 1.5px solid #FA2302;
+                    font-family: GalanoGrotesqueExtraBold , sans-serif;
+                    outline : none;
+                }
+
+                #day {
+                    width: 100%;
+                    border-radius: 10px;
+                    border: 1.5px solid #FA2302;
+                    font-family: GalanoGrotesqueExtraBold , sans-serif;
+                    outline : none;
+                }
+
+                #hour {
+                    width: 100%;
+                    border-radius: 10px;
+                    border: 1.5px solid #FA2302;
+                    font-family: GalanoGrotesqueExtraBold , sans-serif;
+                    outline : none;
+                }
+
+                #minute {
+                    width: 100%;
+                    border-radius: 10px;
+                    border: 1.5px solid #FA2302;
+                    font-family: GalanoGrotesqueExtraBold , sans-serif;
+                    outline : none;
+                }
+
+                #year:hover, #month:hover, #day:hover, #hour:hover, #minute:hover {
+                    cursor: pointer;
+                    border: 2px solid #FA2302;
+                    transition: transform 0.5s ease;
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: GalanoGrotesqueBold, sans-serif;
+
+
+    .footer__stungBtn {
+        width: 40%;
+        height: 40%;
+        display: flex;
+        justify-content: center;
+        .stungBtn{
+            width: 80%;
+            height: 100%;
+            font-size: 13px;
+            transition: transform 0.5s ease;
+            background-color: #FA2302;
+            color: white;
+            border-radius: 10px;
+            border: none;
+            font-family: GalanoGrotesqueBold, sans-serif;
+        }
+
+        .stungBtn:hover{
+            cursor: pointer;
+            color: #FA2302;
+            background-color: white;
+            border:3px solid #FA2302 ;
+            transition: transform 0.5s ease;
+            transform: scale(1.05);
+        }
+    }
+
+}
+
+
+.container__centerTwo, .container__centerThree, .container__centerFour, .container__centerFive {
+    display: none;
+}
+
+
+@keyframes PrevStep {
+    0% {
+        opacity: 1;
+        margin-left: 0%;
+    }
+    100% {
+        margin-right: 80%;
+        margin-left: 0%;
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes PrevStep2 {
+    0% {
+        opacity: 0;
+        display: none;
+        margin-right: -80%;
+        margin-left: 0%;
+    }
+    100% {
+        margin-right: 0%;
+        margin-left: 0%;
+        opacity: 1;
+        display: flex;
+    }
+}
+
+@keyframes NextStep {
+    0% {
+        opacity: 1;
+        margin-right: 0%;
+    }
+    100% {
+        margin-left: 80%;
+        margin-right: 0%;
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes NextStep2 {
+    0% {
+        opacity: 0;
+        display: none;
+        margin-left: -80%;
+        margin-right: 0%;
+    }
+    100% {
+        margin-left: 0%;
+        opacity: 1;
+    }
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    border-color: #6b7280;
+    border-width: 1px;
+    border-radius: 0;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.Selection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#villeInput {
+    padding: 10px;
+    font-size: 16px;
+    width: 95%;
+    height: 30%;
+    border-radius: 10px;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 9px 0px #F00;
+}
+
+#villeInput::placeholder{
+    font-family: GalanoGrotesqueExtraBold , sans-serif;
+    text-align: center;
+    color: black;
+}
+
+/* Styles pour les suggestions de villes */
+#suggestions {
+    max-height: 150px;
+    overflow-y: auto;
+    width: 298px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    display: none;
+}
+
+#suggestions div {
+    padding: 5px;
+    cursor: pointer;
+}
+
+#suggestions div:hover {
+    background-color: #f0f0f0;
+}
+
+#location{
+    position: fixed;
+    margin-right: 10%;
+}
