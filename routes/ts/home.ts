@@ -9,9 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     fileInput.id = 'fileInput';
     fileInput.style.display = 'none'; // Cachez l'input
 
-    stungBtn.addEventListener('click', function() {
+    stungBtn?.addEventListener('click', function() {
         /*console.log("zob dans le cul")*/
-        main.innerHTML =
+        // @ts-ignore
+        main?.innerHTML =
             "<h1 class='TitleQuestion'>Take a <span class='TitleColor'>pic</span> of the sting </h1>" +
             "<div class='main__container'>" +
             "<div class='container__chevronL' style='margin-left: 2%'><svg class='svg' width=\"20\" height=\"40\" viewBox=\"0 0 41 79\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
@@ -84,11 +85,16 @@ document.addEventListener('DOMContentLoaded', function() {
             "<path d=\"M1.28125 77.9375L39.7188 39.5L1.28125 1.0625\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n" +
             "</svg>\n</div>" +
             "</div>";
-        main.style.flexDirection = "column";
-        main.style.justifyContent = "flex-end";
-        main.style.gap = "3rem"
-        footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>1</span> / 4</h1>"
-        footer.style.alignItems = "center";
+        // @ts-ignore
+        main?.style.flexDirection = "column";
+        // @ts-ignore
+        main?.style.justifyContent = "flex-end";
+        // @ts-ignore
+        main?.style.gap = "3rem"
+        // @ts-ignore
+        footer?.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>1</span> / 4</h1>"
+        // @ts-ignore
+        footer?.style.alignItems = "center";
         let TitleQuestion = document.querySelector('.TitleQuestion');
 
         function nextStep() {
@@ -98,47 +104,76 @@ document.addEventListener('DOMContentLoaded', function() {
             let centerFour = document.querySelector('.container__centerFour');
             let centerFive = document.querySelector('.container__centerFive');
 
-            if (centerOne.style.display != "none") {
+            // @ts-ignore
+            if (centerOne?.style.display != "none") {
 
                 //add animation NexStep and PreviousStep
 
-                TitleQuestion.innerHTML = "Enter the <span class='TitleColor'>date</span> and the <span class='TitleColor'>time</span> of your sting "
-                centerOne.style.animation = "PrevStep 0.7s";
-                centerOne.style.animationFillMode = "forwards";
-                footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>2</span> / 4</h1>"
+                // @ts-ignore
+                TitleQuestion?.innerHTML = "Enter the <span class='TitleColor'>date</span> and the <span class='TitleColor'>time</span> of your sting "
+                // @ts-ignore
+                centerOne?.style.animation = "PrevStep 0.7s";
+                // @ts-ignore
+                centerOne?.style.animationFillMode = "forwards";
+                // @ts-ignore
+                footer?.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>2</span> / 4</h1>"
                 setTimeout(function() {
                     initDateDropdowns();
-                    centerTwo.style.display = "flex";
-                    centerOne.style.display = "none";
-                    centerTwo.style.marginLeft = "0";
-                    centerTwo.style.animation = "PrevStep2 0.7s";
-                    centerTwo.style.animationFillMode = "forwards";
+                    // @ts-ignore
+                    centerTwo?.style.display = "flex";
+                    // @ts-ignore
+                    centerOne?.style.display = "none";
+                    // @ts-ignore
+                    centerTwo?.style.marginLeft = "0";
+                    // @ts-ignore
+                    centerTwo?.style.animation = "PrevStep2 0.7s";
+                    // @ts-ignore
+                    centerTwo?.style.animationFillMode = "forwards";
                 }, 350);
 
-
-            } else if (centerTwo.style.display === "flex") {
-                TitleQuestion.innerHTML = "What <span class='TitleColor'>symptoms</span> do you have ? "
-                centerTwo.style.animation = "PrevStep 0.7s";
-                centerTwo.style.animationFillMode = "forwards";
-                footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>3</span> / 4</h1>"
+            // @ts-ignore
+            } else if (centerTwo?.style.display === "flex") {
+                // @ts-ignore
+                TitleQuestion?.innerHTML = "What <span class='TitleColor'>symptoms</span> do you have ? "
+                // @ts-ignore
+                centerTwo?.style.animation = "PrevStep 0.7s";
+                // @ts-ignore
+                centerTwo?.style.animationFillMode = "forwards";
+                // @ts-ignore
+                footer?.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>3</span> / 4</h1>"
                 setTimeout(function() {
-                    centerThree.style.display = "flex";
-                    centerTwo.style.display = "none";
-                    centerThree.style.marginLeft = "0";
-                    centerThree.style.animation = "PrevStep2 0.7s";
-                    centerThree.style.animationFillMode = "forwards";
+                    // @ts-ignore
+                    centerThree?.style.display = "flex";
+                    // @ts-ignore
+                    centerTwo?.style.display = "none";
+                    // @ts-ignore
+                    centerThree?.style.marginLeft = "0";
+                    // @ts-ignore
+                    centerThree?.style.animation = "PrevStep2 0.7s";
+                    // @ts-ignore
+                    centerThree?.style.animationFillMode = "forwards";
                 }, 350);
-            } else if (centerThree.style.display === "flex") {
-                TitleQuestion.innerHTML = "In which <span class='TitleColor'>city</span> did you get stung ? "
+                // @ts-ignore
+            } else if (centerThree?.style.display === "flex") {
+                // @ts-ignore
+                TitleQuestion?.innerHTML = "In which <span class='TitleColor'>city</span> did you get stung ? "
+                // @ts-ignore
                 centerThree.style.animation = "PrevStep 0.7s";
+                // @ts-ignore
                 centerThree.style.animationFillMode = "forwards";
-                footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>4</span> / 4</h1>"
+                // @ts-ignore
+                footer?.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>4</span> / 4</h1>"
                 setTimeout(function() {
-                    centerFour.style.display = "flex";
-                    centerThree.style.display = "none";
-                    centerFour.style.marginLeft = "0";
-                    centerFour.style.animation = "PrevStep2 0.7s";
-                    centerFour.style.animationFillMode = "forwards";
+                    // @ts-ignore
+                    centerFour?.style.display = "flex";
+                    // @ts-ignore
+                    centerThree?.style.display = "none";
+                    // @ts-ignore
+                    centerFour?.style.marginLeft = "0";
+                    // @ts-ignore
+                    centerFour?.style.animation = "PrevStep2 0.7s";
+                    // @ts-ignore
+                    centerFour?.style.animationFillMode = "forwards";
                 }, 350);
             } /*else if (centerFour.style.display === "flex") {
                 centerOne.style.display = "none";
@@ -178,43 +213,74 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 300);
 
 
-            } else*/ if (centerTwo.style.display === "flex") {
-                TitleQuestion.innerHTML = "Take a <span class='TitleColor'>pic</span> of the sting "
-                centerTwo.style.animation = "NextStep 0.7s";
-                centerTwo.style.animationFillMode = "forwards";
-                footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>1</span> / 4</h1>"
-                setTimeout(function() {
-                    centerTwo.style.display = "none";
-                    centerTwo.style.marginRight = "0";
-                    centerTwo.style.marginLeft = "0";
-                    centerOne.style.display = "flex";
+
+            } else*/
+            // @ts-ignore
+            if (centerTwo?.style.display === "flex") {
+                // @ts-ignore
+                TitleQuestion?.innerHTML = "Take a <span class='TitleColor'>pic</span> of the sting "
+                // @ts-ignore
+                centerTwo?.style.animation = "NextStep 0.7s";
+                // @ts-ignore
+                centerTwo?.style.animationFillMode = "forwards";
+                // @ts-ignore
+                footer?.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>1</span> / 4</h1>"
+                setTimeout(function() {// @ts-ignore
+
+                    centerTwo?.style.display = "none";
+                    // @ts-ignore
+                    centerTwo?.style.marginRight = "0";
+                    // @ts-ignore
+                    centerTwo?.style.marginLeft = "0";
+                    // @ts-ignore
+                    centerOne?.style.display = "flex";
                     /*centerOne.style.marginLeft = "-40%";*/
-                    centerOne.style.animation = "NextStep2 0.7s";
-                    centerOne.style.animationFillMode = "forwards";
+                    // @ts-ignore
+                    centerOne?.style.animation = "NextStep2 0.7s";
+                    // @ts-ignore
+                    centerOne?.style.animationFillMode = "forwards";
                 }, 350);
-            } else if (centerThree.style.display === "flex") {
-                TitleQuestion.innerHTML = "Enter the <span class='TitleColor'>date</span> and the <span class='TitleColor'>time</span> of your sting "
-                centerThree.style.animation = "NextStep 0.7s";
-                centerThree.style.animationFillMode = "forwards";
-                footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>2</span> / 4</h1>"
+                // @ts-ignore
+            } else if (centerThree?.style.display === "flex") {
+                // @ts-ignore
+                TitleQuestion?.innerHTML = "Enter the <span class='TitleColor'>date</span> and the <span class='TitleColor'>time</span> of your sting "
+                // @ts-ignore
+                centerThree?.style.animation = "NextStep 0.7s";
+                // @ts-ignore
+                centerThree?.style.animationFillMode = "forwards";
+                // @ts-ignore
+                footer?.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>2</span> / 4</h1>"
                 setTimeout(function() {
-                    centerThree.style.display = "none";
-                    centerTwo.style.display = "flex";
+                    // @ts-ignore
+                    centerThree?.style.display = "none";
+                    // @ts-ignore
+                    centerTwo?.style.display = "flex";
                     /*centerTwo.style.marginLeft = "-80%";*/
-                    centerTwo.style.animation = "NextStep2 0.7s";
-                    centerTwo.style.animationFillMode = "forwards";
+                    // @ts-ignore
+                    centerTwo?.style.animation = "NextStep2 0.7s";
+                    // @ts-ignore
+                    centerTwo?.style.animationFillMode = "forwards";
                 }, 350);
-            } else if (centerFour.style.display === "flex") {
-                TitleQuestion.innerHTML = "What <span class='TitleColor'>symptoms</span> do you have ? "
-                centerFour.style.animation = "NextStep 0.7s";
-                centerFour.style.animationFillMode = "forwards";
-                footer.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>3</span> / 4</h1>"
+                // @ts-ignore
+            } else if (centerFour?.style.display === "flex") {
+                // @ts-ignore
+                TitleQuestion?.innerHTML = "What <span class='TitleColor'>symptoms</span> do you have ? "
+                // @ts-ignore
+                centerFour?.style.animation = "NextStep 0.7s";
+                // @ts-ignore
+                centerFour?.style.animationFillMode = "forwards";
+                // @ts-ignore
+                footer?.innerHTML = "<h1 class='TitleQuestion'><span class='TitleColor'>3</span> / 4</h1>"
                 setTimeout(function() {
-                    centerFour.style.display = "none";
-                    centerThree.style.display = "flex";
+                    // @ts-ignore
+                    centerFour?.style.display = "none";
+                    // @ts-ignore
+                    centerThree?.style.display = "flex";
                     /*centerThree.style.marginLeft = "-80%";*/
-                    centerThree.style.animation = "NextStep2 0.7s";
-                    centerThree.style.animationFillMode = "forwards";
+                    // @ts-ignore
+                    centerThree?.style.animation = "NextStep2 0.7s";
+                    // @ts-ignore
+                    centerThree?.style.animationFillMode = "forwards";
                 }, 350);
             } /*else if (centerFive.style.display === "flex") {
                 centerOne.style.display = "flex";
@@ -227,14 +293,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const svgImage = document.querySelector('.svgImage');
 
-        svgImage.addEventListener('click', function() {
+        svgImage?.addEventListener('click', function() {
             // Déclenchez le sélecteur de fichier lorsque le SVG est cliqué
             fileInput.click();
         });
 
         // Réagissez lorsque l'utilisateur sélectionne un fichier
         fileInput.addEventListener('change', function(event) {
-            const selectedFile = event.target.files[0];
+            // @ts-ignore
+            const selectedFile = event.target?.files[0];
 
             if (selectedFile) {
                 // Faites quelque chose avec le fichier sélectionné, par exemple, affichez le nom du fichier
@@ -245,11 +312,11 @@ document.addEventListener('DOMContentLoaded', function() {
         let chevronL = document.querySelector('.container__chevronL');
         let chevronR = document.querySelector('.container__chevronR');
 
-        chevronL.addEventListener('click', function() {
+        chevronL?.addEventListener('click', function() {
             previousStep();
         });
 
-        chevronR.addEventListener('click', function() {
+        chevronR?.addEventListener('click', function() {
             nextStep();
         });
 
@@ -271,11 +338,14 @@ function initDateDropdowns() {
         if(year===currentYear){
             const option = document.createElement("option");
             option.text = "Year";
-            yearDropdown.add(option);
+            // @ts-ignore
+            yearDropdown?.add(option);
         }
         const option = document.createElement("option");
-        option.text = year;
-        yearDropdown.add(option);
+        // @ts-ignore
+        option?.text = year;
+        // @ts-ignore
+        yearDropdown?.add(option);
     }
 
     // Remplir le menu déroulant pour le mois
@@ -283,63 +353,81 @@ function initDateDropdowns() {
         if(month===1){
             const option = document.createElement("option");
             option.text = "Month";
-            monthDropdown.add(option);
+            // @ts-ignore
+            monthDropdown?.add(option);
         }
         const option = document.createElement("option");
+        // @ts-ignore
         option.text = month;
-        monthDropdown.add(option);
+        // @ts-ignore
+        monthDropdown?.add(option);
     }
 
     // Remplir le menu déroulant pour l'heure
     for (let hour = 1; hour <= 23; hour++) {
         const option = document.createElement("option");
-        option.text = hour;
-        hourDropdown.add(option);
+        // @ts-ignore
+        option?.text = hour;
+        // @ts-ignore
+        hourDropdown?.add(option);
     }
 
     // Remplir le menu déroulant pour les minutes
     for (let minute = 1; minute <= 59; minute++) {
         const option = document.createElement("option");
+        // @ts-ignore
         option.text = minute;
+        // @ts-ignore
         minuteDropdown.add(option);
     }
 
     // Mettre à jour les jours en fonction de l'année et du mois sélectionnés
     function updateDays() {
-        if(yearDropdown.value=== "Year" || monthDropdown.value==="Month"){
+        // @ts-ignore
+        if(yearDropdown?.value=== "Year" || monthDropdown?.value==="Month"){
             const option = document.createElement("option");
             option.text = "Day";
-            dayDropdown.add(option);
+            // @ts-ignore
+            dayDropdown?.add(option);
             for (let day = 1; day <= 31; day++) {
                 const option = document.createElement("option");
-                option.text = day;
-                dayDropdown.add(option);
+                // @ts-ignore
+                option?.text = day;
+                // @ts-ignore
+                dayDropdown?.add(option);
             }
             return;
         }
-        const selectedYear = parseInt(yearDropdown.value);
-        const selectedMonth = parseInt(monthDropdown.value);
+        // @ts-ignore
+        const selectedYear = parseInt(yearDropdown?.value);
+        // @ts-ignore
+        const selectedMonth = parseInt(monthDropdown?.value);
         const daysInMonth = new Date(selectedYear, selectedMonth, 0).getDate();
 
         // Effacer les options précédentes
-        while (dayDropdown.firstChild) {
-            dayDropdown.removeChild(dayDropdown.firstChild);
+        while (dayDropdown?.firstChild) {
+            dayDropdown?.removeChild(dayDropdown?.firstChild);
         }
         const option = document.createElement("option");
         option.text = "Day";
-        dayDropdown.add(option);
+        // @ts-ignore
+        dayDropdown?.add(option);
 
         // Remplir le menu déroulant pour le jour
         for (let day = 1; day <= daysInMonth; day++) {
             const option = document.createElement("option");
-            option.text = day;
-            dayDropdown.add(option);
+            // @ts-ignore
+
+            option?.text = day;
+            // @ts-ignore
+
+            dayDropdown?.add(option);
         }
     }
 
     // Écouter les changements dans les menus déroulants de l'année et du mois
-    yearDropdown.addEventListener("change", updateDays);
-    monthDropdown.addEventListener("change", updateDays);
+    yearDropdown?.addEventListener("change", updateDays);
+    monthDropdown?.addEventListener("change", updateDays);
 
     // Appeler la fonction d'initialisation des menus déroulants
     updateDays();
@@ -351,46 +439,66 @@ function initDateDropdowns() {
 
         let selectedCity = null;
 
-        async function searchCities(query) {
+        async function searchCities(query: any) {
             try {
                 const response = await fetch(`http://api.geonames.org/searchJSON?formatted=true&username=${apiKey}&featureClass=P&orderby=population&maxRows=10&name_startsWith=${query}`);
                 const data = await response.json();
                 const cities = data.geonames;
 
                 // Afficher les suggestions de villes
-                suggestionsDiv.innerHTML = "";
-                cities.forEach(city => {
+                // @ts-ignore
+
+                suggestionsDiv?.innerHTML = "";
+                cities.forEach((city: { name: any; countryName: any; }) => {
                     const suggestion = document.createElement("div");
                     suggestion.textContent = `${city.name}, ${city.countryName}`;
                     suggestion.addEventListener("click", () => {
-                        input.value = suggestion.textContent;
-                        suggestionsDiv.innerHTML = "";
+                        // @ts-ignore
+
+                        input?.value = suggestion.textContent;
+                        // @ts-ignore
+
+                        suggestionsDiv?.innerHTML = "";
                         selectedCity = city;
                     });
-                    suggestionsDiv.appendChild(suggestion);
+                    suggestionsDiv?.appendChild(suggestion);
                 });
             } catch (error) {
                 console.error("Erreur lors de la recherche de villes :", error);
             }
         }
 
-        input.addEventListener("input", function () {
+        input?.addEventListener("input", function () {
             const locationSVG = document.querySelector('.locationSVG');
-            locationSVG.style.display = "none";
+            // @ts-ignore
+
+            locationSVG?.style.display = "none";
+            // @ts-ignore
+
             const query = input.value.trim();
             if (query.length >= 3) {
                 searchCities(query);
-                suggestionsDiv.style.display = "block";
+                // @ts-ignore
+
+                suggestionsDiv?.style.display = "block";
             } else {
-                suggestionsDiv.innerHTML = "";
-                suggestionsDiv.style.display = "none";
+                // @ts-ignore
+
+                suggestionsDiv?.innerHTML = "";
+                // @ts-ignore
+
+                suggestionsDiv?.style.display = "none";
             }
 
             input.addEventListener("blur", function () {
                 const locationSVG = document.querySelector('.locationSVG');
-                locationSVG.style.display = "none";
+                // @ts-ignore
+
+                locationSVG?.style.display = "none";
                 setTimeout(() => {
-                    suggestionsDiv.style.display = "none";
+                    // @ts-ignore
+
+                    suggestionsDiv?.style.display = "none";
                 }, 200); // Ajouter un délai pour permettre la sélection de la suggestion
             });
         });
