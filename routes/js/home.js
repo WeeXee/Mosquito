@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "</div>"+
             "</div>" +
             "<div class='container__centerThree'>" +
-            "<h1>Zob3</h1>"+
+            "<h1>P3</h1>"+
 
             "</div>" +
             "<div class='container__centerFour'>" +
